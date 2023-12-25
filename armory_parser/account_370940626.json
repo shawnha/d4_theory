@@ -2,7 +2,7 @@
   "bosses_killed": 20,
   "characters": [
     {
-      "accountLastUpdate": 1703546785,
+      "accountLastUpdate": 1703547154,
       "altars": [],
       "name": "가렌",
       "clan": null,
@@ -298,7 +298,7 @@
       "hardcore": false,
       "id": "2e6cdbd0-096f-11ee-a752-8993abe540c7",
       "lastLogin": 1686614743506000000,
-      "lastUpdate": 1703546785,
+      "lastUpdate": 1703547154,
       "level": 13,
       "monstersKilled": 1647,
       "playersKilled": 0,
@@ -339,7 +339,7 @@
       "worldTier": 0
     },
     {
-      "accountLastUpdate": 1703546785,
+      "accountLastUpdate": 1703548262,
       "altars": [],
       "name": "이라",
       "clan": null,
@@ -633,7 +633,7 @@
       "hardcore": false,
       "id": "60878600-9c82-11ee-97c3-37e9d24e8885",
       "lastLogin": 1703366772804000000,
-      "lastUpdate": 1703546785,
+      "lastUpdate": 1703547154,
       "level": 56,
       "monstersKilled": 15054,
       "playersKilled": 0,
@@ -674,7 +674,7 @@
       "worldTier": 3
     },
     {
-      "accountLastUpdate": 1703547154,
+      "accountLastUpdate": 1703548262,
       "altars": [],
       "name": "크로",
       "clan": null,
@@ -956,7 +956,7 @@
       "hardcore": false,
       "id": "fc5248b0-0716-11ee-b717-eb9366f58160",
       "lastLogin": 1702774612610000000,
-      "lastUpdate": 1703546785,
+      "lastUpdate": 1703547155,
       "level": 42,
       "monstersKilled": 5981,
       "playersKilled": 0,

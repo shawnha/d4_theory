@@ -2,7 +2,6 @@ use chrono::{DateTime, Utc};
 use reqwest;
 use serde::{Serialize, Deserialize};
 use serde_json::{json, Value};
-use std::{error, fmt, result};
 
 /// Player's account ID
 const ACCOUNT_ID: u64 = 370940626;
@@ -33,8 +32,8 @@ enum Error {
 }
 
 /// Implement the formatter for our custom error type
-impl fmt::Display for Error {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+impl std::fmt::Display for Error {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         match self {
             Error::HttpRequest(e) => 
                 write!(f, "HTTP request error: {}", e),
@@ -51,7 +50,7 @@ impl fmt::Display for Error {
 }
 
 /// Implement standard error trait and conversion from other error types
-impl error::Error for Error {}
+impl std::error::Error for Error {}
 impl From<reqwest::Error> for Error {
     fn from(err: reqwest::Error) -> Error {
         Error::HttpRequest(err)
@@ -69,7 +68,7 @@ impl From<std::io::Error> for Error {
 }
 
 /// Custom Result type alias
-type Result<T> = result::Result<T, Error>;
+type Result<T> = std::result::Result<T, Error>;
 
 #[derive(Debug, Serialize, Deserialize)]
 struct Account {
