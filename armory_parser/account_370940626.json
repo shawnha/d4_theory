@@ -1,0 +1,1005 @@
+{
+  "bosses_killed": 20,
+  "characters": [
+    {
+      "accountLastUpdate": 1703546785,
+      "altars": [],
+      "name": "가렌",
+      "clan": null,
+      "class": "Barbarian",
+      "completed_quests": [],
+      "createdAt": 1686608362052000000,
+      "dead": false,
+      "elitesKilled": 30,
+      "equipment": [
+        {
+          "added_affix_ids": [],
+          "added_affixes": [],
+          "base_affix_ids": [],
+          "base_affixes": [],
+          "id": 1037975,
+          "itemtype": "Amulet",
+          "name": "Choker of Penance",
+          "parent": null,
+          "power": 40,
+          "quality_level": "White",
+          "quality_modifier": 0,
+          "required_level": 1,
+          "strikethrough_affix_ids": [],
+          "strikethrough_affixes": [],
+          "tex": 3726287678,
+          "upgrades": 0
+        },
+        {
+          "added_affix_ids": [],
+          "added_affixes": [],
+          "base_affix_ids": [
+            583654
+          ],
+          "base_affixes": [
+            "79 Armor",
+            "10 Willpower"
+          ],
+          "id": 440546,
+          "itemtype": "Boots",
+          "name": "Wanderer's Boots",
+          "parent": null,
+          "power": 158,
+          "quality_level": "Magic",
+          "quality_modifier": 0,
+          "required_level": 4,
+          "strikethrough_affix_ids": [],
+          "strikethrough_affixes": [],
+          "tex": 587317406,
+          "upgrades": 0
+        },
+        {
+          "added_affix_ids": [],
+          "added_affixes": [],
+          "base_affix_ids": [
+            761307,
+            583646,
+            761308
+          ],
+          "base_affixes": [
+            "+ (1.4) Rank of Hammer of the Ancients",
+            "14 Intelligence",
+            "+ (1.4) Rank of Rend"
+          ],
+          "id": 218948,
+          "itemtype": "Gloves",
+          "name": "Fur-Lined Mitts",
+          "parent": null,
+          "power": 187,
+          "quality_level": "Rare",
+          "quality_modifier": 0,
+          "required_level": 7,
+          "strikethrough_affix_ids": [],
+          "strikethrough_affixes": [],
+          "tex": 1734855409,
+          "upgrades": 0
+        },
+        {
+          "added_affix_ids": [],
+          "added_affixes": [],
+          "base_affix_ids": [
+            577185
+          ],
+          "base_affixes": [
+            "+7.5% Damage to Close Enemies"
+          ],
+          "id": 440997,
+          "itemtype": "Polearm",
+          "name": "Bardiche",
+          "parent": null,
+          "power": 167,
+          "quality_level": "Magic",
+          "quality_modifier": 0,
+          "required_level": 5,
+          "strikethrough_affix_ids": [],
+          "strikethrough_affixes": [],
+          "tex": 2665147328,
+          "upgrades": 0
+        },
+        {
+          "added_affix_ids": [],
+          "added_affixes": [],
+          "base_affix_ids": [
+            577089
+          ],
+          "base_affixes": [
+            "236 Armor",
+            "+2.5% Shadow Resistance"
+          ],
+          "id": 440972,
+          "itemtype": "ChestArmor",
+          "name": "Wanderer's Tunic",
+          "parent": null,
+          "power": 135,
+          "quality_level": "Magic",
+          "quality_modifier": 0,
+          "required_level": 2,
+          "strikethrough_affix_ids": [],
+          "strikethrough_affixes": [],
+          "tex": 470693614,
+          "upgrades": 0
+        },
+        {
+          "added_affix_ids": [],
+          "added_affixes": [],
+          "base_affix_ids": [
+            1480004
+          ],
+          "base_affixes": [
+            "+1 Maximum Fury"
+          ],
+          "id": 346457,
+          "itemtype": "Ring",
+          "name": "Ring",
+          "parent": null,
+          "power": 131,
+          "quality_level": "Magic",
+          "quality_modifier": 0,
+          "required_level": 2,
+          "strikethrough_affix_ids": [],
+          "strikethrough_affixes": [],
+          "tex": 1086576251,
+          "upgrades": 0
+        },
+        {
+          "added_affix_ids": [],
+          "added_affixes": [],
+          "base_affix_ids": [
+            577177
+          ],
+          "base_affixes": [
+            "+3% Critical Strike Damage"
+          ],
+          "id": 446360,
+          "itemtype": "Mace2H",
+          "name": "Crude Hammer",
+          "parent": null,
+          "power": 147,
+          "quality_level": "Magic",
+          "quality_modifier": 0,
+          "required_level": 3,
+          "strikethrough_affix_ids": [],
+          "strikethrough_affixes": [],
+          "tex": 1832684935,
+          "upgrades": 0
+        },
+        {
+          "added_affix_ids": [],
+          "added_affixes": [],
+          "base_affix_ids": [
+            577177,
+            577173,
+            577077
+          ],
+          "base_affixes": [
+            "+2% Critical Strike Damage",
+            "+0.02 Maximum Life",
+            "+2% Physical Damage"
+          ],
+          "id": 1086681,
+          "itemtype": "Ring",
+          "name": "Miner's Litany",
+          "parent": null,
+          "power": 127,
+          "quality_level": "Rare",
+          "quality_modifier": 0,
+          "required_level": 1,
+          "strikethrough_affix_ids": [],
+          "strikethrough_affixes": [],
+          "tex": 1086576251,
+          "upgrades": 0
+        },
+        {
+          "added_affix_ids": [],
+          "added_affixes": [],
+          "base_affix_ids": [
+            577221,
+            583632,
+            761320
+          ],
+          "base_affixes": [
+            "190 Armor",
+            "1.4% Dodge Chance",
+            "13 Strength",
+            "+ (1.4) Rank of Kick"
+          ],
+          "id": 218958,
+          "itemtype": "Legs",
+          "name": "Sand-Worn Breeches",
+          "parent": null,
+          "power": 190,
+          "quality_level": "Rare",
+          "quality_modifier": 0,
+          "required_level": 7,
+          "strikethrough_affix_ids": [],
+          "strikethrough_affixes": [],
+          "tex": 3328294852,
+          "upgrades": 0
+        },
+        {
+          "added_affix_ids": [],
+          "added_affixes": [],
+          "base_affix_ids": [
+            1085169
+          ],
+          "base_affixes": [
+            "+1.5% Core Skill Damage"
+          ],
+          "id": 446358,
+          "itemtype": "Axe",
+          "name": "Cutter's Axe",
+          "parent": null,
+          "power": 146,
+          "quality_level": "Magic",
+          "quality_modifier": 0,
+          "required_level": 3,
+          "strikethrough_affix_ids": [],
+          "strikethrough_affixes": [],
+          "tex": 3571521657,
+          "upgrades": 0
+        },
+        {
+          "added_affix_ids": [],
+          "added_affixes": [],
+          "base_affix_ids": [
+            577081,
+            577089,
+            1083127
+          ],
+          "base_affixes": [
+            "210 Armor",
+            "+13% Fire Resistance",
+            "+10% Shadow Resistance",
+            "+4.5% Total Armor"
+          ],
+          "id": 218955,
+          "itemtype": "Helm",
+          "name": "Coven's Cowl",
+          "parent": null,
+          "power": 168,
+          "quality_level": "Rare",
+          "quality_modifier": 0,
+          "required_level": 5,
+          "strikethrough_affix_ids": [],
+          "strikethrough_affixes": [],
+          "tex": 4206424815,
+          "upgrades": 0
+        },
+        {
+          "added_affix_ids": [],
+          "added_affixes": [],
+          "base_affix_ids": [
+            584013
+          ],
+          "base_affixes": [
+            "<text class='c_label'>Lucky Hit:</text> Up to a +1% Chance to Execute Injured Non-Elites"
+          ],
+          "id": 216115,
+          "itemtype": "Mace",
+          "name": "Club",
+          "parent": null,
+          "power": 128,
+          "quality_level": "Magic",
+          "quality_modifier": 0,
+          "required_level": 1,
+          "strikethrough_affix_ids": [],
+          "strikethrough_affixes": [],
+          "tex": 254083089,
+          "upgrades": 0
+        }
+      ],
+      "fog_of_wars": [],
+      "goldCollected": 6838,
+      "hardcore": false,
+      "id": "2e6cdbd0-096f-11ee-a752-8993abe540c7",
+      "lastLogin": 1686614743506000000,
+      "lastUpdate": 1703546785,
+      "level": 13,
+      "monstersKilled": 1647,
+      "playersKilled": 0,
+      "power": 147,
+      "queue": 1,
+      "season": 0,
+      "seasonal": false,
+      "secondsPlayed": 6364,
+      "skillTree": [],
+      "skills": [
+        {
+          "desc": "",
+          "name": "Lunging Strike"
+        },
+        {
+          "desc": "",
+          "name": "Hammer of the Ancients"
+        },
+        {
+          "desc": "",
+          "name": "Rallying Cry"
+        },
+        {
+          "desc": "",
+          "name": "War Cry"
+        },
+        {
+          "desc": "Basic attack",
+          "name": "Attack"
+        },
+        {
+          "desc": "Basic attack",
+          "name": "Attack"
+        }
+      ],
+      "twitch": null,
+      "waypoints": [],
+      "worldTier": 0
+    },
+    {
+      "accountLastUpdate": 1703546785,
+      "altars": [],
+      "name": "이라",
+      "clan": null,
+      "class": "Necromancer",
+      "completed_quests": [],
+      "createdAt": 1702779427453000000,
+      "dead": false,
+      "elitesKilled": 670,
+      "equipment": [
+        {
+          "added_affix_ids": [],
+          "added_affixes": [],
+          "base_affix_ids": [
+            608841,
+            1290786,
+            1290844,
+            577173,
+            763042
+          ],
+          "base_affixes": [
+            "1172 Armor",
+            "When you pick up <text class='c_random'>11.7</text> <text class='c_important'><u>Blood Orbs</u></text>, a free <text class='c_important'>Bone Spirit</text> is spawned, dealing bonus damage based on your current Life percent.",
+            "UNKNOWN DESCRIPTION for Blood_Orb_Pickup_Damage_Percent_Bonus : BloodOrb_Damage.aff : 0.095",
+            "+15.6% Blood Orb Healing",
+            "+0.12 Maximum Life",
+            "+(2) Rank of Bone Spirit"
+          ],
+          "id": 1306230,
+          "itemtype": "ChestArmor",
+          "name": "Blood Artisan's Cuirass",
+          "parent": null,
+          "power": 670,
+          "quality_level": "Unique",
+          "quality_modifier": 1,
+          "required_level": 48,
+          "strikethrough_affix_ids": [],
+          "strikethrough_affixes": [],
+          "tex": 788948417,
+          "upgrades": 3
+        },
+        {
+          "added_affix_ids": [],
+          "added_affixes": [],
+          "base_affix_ids": [
+            621929,
+            583482,
+            577217,
+            1321854,
+            583646
+          ],
+          "base_affixes": [
+            "Gain <text class='c_random'>24.69%</text> increased Critical Strike Chance for <text class='c_number'>7.8</text> seconds when you cast <text class='c_important'>Corpse Tendrils</text>. You deal <text class='c_random'>49.37%</text> bonus Critical Strike Damage to enemies damaged by <text class='c_important'>Corpse Tendrils</text>.",
+            "14.3 All Stats",
+            "+9.88% Lucky Hit Chance",
+            "+17.55% Shadow Damage Over Time",
+            "39 Intelligence"
+          ],
+          "id": 421532,
+          "itemtype": "Gloves",
+          "name": "Warlord Gauntlets",
+          "parent": null,
+          "power": 652,
+          "quality_level": "Legendary",
+          "quality_modifier": 1,
+          "required_level": 48,
+          "strikethrough_affix_ids": [],
+          "strikethrough_affixes": [],
+          "tex": 3000844205,
+          "upgrades": 3
+        },
+        {
+          "added_affix_ids": [],
+          "added_affixes": [],
+          "base_affix_ids": [
+            583632,
+            763052,
+            577173,
+            577225
+          ],
+          "base_affixes": [
+            "697 Armor",
+            "36.4 Strength",
+            "+(2) Rank of Bone Prison",
+            "+0.22 Maximum Life",
+            "+0.13 Thorns"
+          ],
+          "id": 495786,
+          "itemtype": "Legs",
+          "name": "Sturdy Pants",
+          "parent": null,
+          "power": 697,
+          "quality_level": "Rare",
+          "quality_modifier": 1,
+          "required_level": 48,
+          "strikethrough_affix_ids": [],
+          "strikethrough_affixes": [],
+          "tex": 2273040720,
+          "upgrades": 3
+        },
+        {
+          "added_affix_ids": [],
+          "added_affixes": [],
+          "base_affix_ids": [],
+          "base_affixes": [],
+          "id": 315735,
+          "itemtype": "Gem",
+          "name": "Ruby",
+          "parent": 495786,
+          "power": 0,
+          "quality_level": "White",
+          "quality_modifier": 0,
+          "required_level": 40,
+          "strikethrough_affix_ids": [],
+          "strikethrough_affixes": [],
+          "tex": 2593128732,
+          "upgrades": 0
+        },
+        {
+          "added_affix_ids": [],
+          "added_affixes": [],
+          "base_affix_ids": [],
+          "base_affixes": [],
+          "id": 315735,
+          "itemtype": "Gem",
+          "name": "Ruby",
+          "parent": 495786,
+          "power": 0,
+          "quality_level": "White",
+          "quality_modifier": 0,
+          "required_level": 40,
+          "strikethrough_affix_ids": [],
+          "strikethrough_affixes": [],
+          "tex": 2593128732,
+          "upgrades": 0
+        },
+        {
+          "added_affix_ids": [],
+          "added_affixes": [],
+          "base_affix_ids": [
+            578826,
+            577081,
+            1004945,
+            1316489,
+            583646
+          ],
+          "base_affixes": [
+            "338 Armor",
+            "Critical Strikes grant <text class='c_random'>16.35%</text> Movement Speed for <text class='c_number'>1.3</text> second, up to <text class='c_number'>7.8</text> seconds.",
+            "+33.15% Fire Resistance",
+            "+17.18% Fortify Generation",
+            "27.6% Damage Reduction while Injured",
+            "36.4 Intelligence"
+          ],
+          "id": 459881,
+          "itemtype": "Boots",
+          "name": "Adventurer's Boots",
+          "parent": null,
+          "power": 675,
+          "quality_level": "Legendary",
+          "quality_modifier": 1,
+          "required_level": 46,
+          "strikethrough_affix_ids": [],
+          "strikethrough_affixes": [],
+          "tex": 2569426499,
+          "upgrades": 3
+        },
+        {
+          "added_affix_ids": [],
+          "added_affixes": [],
+          "base_affix_ids": [
+            621929,
+            1087398,
+            1290861,
+            672819,
+            1321863
+          ],
+          "base_affixes": [
+            "Gain <text class='c_random'>15.39%</text> increased Critical Strike Chance for <text class='c_number'>7.8</text> seconds when you cast <text class='c_important'>Corpse Tendrils</text>. You deal <text class='c_random'>30.77%</text> bonus Critical Strike Damage to enemies damaged by <text class='c_important'>Corpse Tendrils</text>.",
+            "+18.2% Ultimate Skill Damage",
+            "+13.65% Critical Strike Damage with Bone Skills",
+            "+8.45% Damage to Crowd Controlled Enemies",
+            "27.3 All Stats"
+          ],
+          "id": 592310,
+          "itemtype": "Sword2H",
+          "name": "Crystal Greatsword",
+          "parent": null,
+          "power": 700,
+          "quality_level": "Legendary",
+          "quality_modifier": 1,
+          "required_level": 55,
+          "strikethrough_affix_ids": [],
+          "strikethrough_affixes": [],
+          "tex": 2952066819,
+          "upgrades": 3
+        },
+        {
+          "added_affix_ids": [],
+          "added_affixes": [],
+          "base_affix_ids": [
+            1215132,
+            583482,
+            1193773,
+            577177,
+            577173
+          ],
+          "base_affixes": [
+            "If a <text class='c_important'>Core</text> Skill hits <text class='c_number'>4</text> or more enemies, <text class='c_random'>23.46%</text> of the Resource cost is refunded.",
+            "10 All Stats",
+            "+2.7% Lucky Hit Chance",
+            "+14% Critical Strike Damage",
+            "+0.16 Maximum Life"
+          ],
+          "id": 1215134,
+          "itemtype": "Ring",
+          "name": "Mother's Embrace",
+          "parent": null,
+          "power": 686,
+          "quality_level": "Unique",
+          "quality_modifier": 1,
+          "required_level": 55,
+          "strikethrough_affix_ids": [],
+          "strikethrough_affixes": [],
+          "tex": 3468537878,
+          "upgrades": 0
+        },
+        {
+          "added_affix_ids": [],
+          "added_affixes": [],
+          "base_affix_ids": [
+            1221659,
+            577093,
+            1092164,
+            1083645,
+            577210
+          ],
+          "base_affixes": [
+            "<text class='c_important'>Blood Surge’s</text> nova echoes again after a short delay, dealing <text class='c_random'>50.61%</text> less damage.",
+            "+5.9% Damage",
+            "+(0.8+0.6*1) Rank of the Tides of Blood Passive",
+            "+4.5% Willpower",
+            "+17% Movement Speed for VALUE2 Seconds After Killing an Elite"
+          ],
+          "id": 1309383,
+          "itemtype": "Amulet",
+          "name": "Chain",
+          "parent": null,
+          "power": 667,
+          "quality_level": "Legendary",
+          "quality_modifier": 1,
+          "required_level": 50,
+          "strikethrough_affix_ids": [],
+          "strikethrough_affixes": [],
+          "tex": 3125733841,
+          "upgrades": 0
+        },
+        {
+          "added_affix_ids": [],
+          "added_affixes": [],
+          "base_affix_ids": [
+            578792,
+            1088081,
+            1290914,
+            1210863,
+            763054
+          ],
+          "base_affixes": [
+            "901 Armor",
+            "You gain <text class='c_random'>1.21%</text> increased Armor for <text class='c_number'>5.2</text> seconds when you deal any form of damage, stacking up to <text class='c_random'>72.67%</text>.",
+            "+(2) Rank of Iron Maiden",
+            "+7.67% Lucky Hit Chance while You Have a Barrier",
+            "+9.1% Barrier Generation",
+            "+(2) Rank of Decrepify"
+          ],
+          "id": 444439,
+          "itemtype": "Helm",
+          "name": "Sovereign Helm",
+          "parent": null,
+          "power": 721,
+          "quality_level": "Legendary",
+          "quality_modifier": 1,
+          "required_level": 55,
+          "strikethrough_affix_ids": [],
+          "strikethrough_affixes": [],
+          "tex": 2958252811,
+          "upgrades": 3
+        }
+      ],
+      "fog_of_wars": [],
+      "goldCollected": 96861734,
+      "hardcore": false,
+      "id": "60878600-9c82-11ee-97c3-37e9d24e8885",
+      "lastLogin": 1703366772804000000,
+      "lastUpdate": 1703546785,
+      "level": 56,
+      "monstersKilled": 15054,
+      "playersKilled": 0,
+      "power": 691,
+      "queue": 1,
+      "season": 2,
+      "seasonal": true,
+      "secondsPlayed": 64214,
+      "skillTree": [],
+      "skills": [
+        {
+          "desc": "",
+          "name": "Hemorrhage"
+        },
+        {
+          "desc": "",
+          "name": "Blood Surge"
+        },
+        {
+          "desc": "",
+          "name": "Corpse Tendrils"
+        },
+        {
+          "desc": "",
+          "name": "Blood Mist"
+        },
+        {
+          "desc": "",
+          "name": "Iron Maiden"
+        },
+        {
+          "desc": "",
+          "name": "Bone Storm"
+        }
+      ],
+      "twitch": null,
+      "waypoints": [],
+      "worldTier": 3
+    },
+    {
+      "accountLastUpdate": 1703547154,
+      "altars": [],
+      "name": "크로",
+      "clan": null,
+      "class": "Sorcerer",
+      "completed_quests": [],
+      "createdAt": 1686350579945000000,
+      "dead": false,
+      "elitesKilled": 242,
+      "equipment": [
+        {
+          "added_affix_ids": [],
+          "added_affixes": [],
+          "base_affix_ids": [
+            1214116,
+            1322044,
+            1087749,
+            1257888,
+            1290761
+          ],
+          "base_affixes": [
+            "Using a Cooldown restores <text class='c_random'>20</text> Mana.",
+            "+13.5% Overpower Damage",
+            "+7% Damage Over Time",
+            "+6% Damage to Frozen Enemies",
+            "+7.5% Damage to Chilled Enemies"
+          ],
+          "id": 1309594,
+          "itemtype": "Ring",
+          "name": "Loop",
+          "parent": null,
+          "power": 509,
+          "quality_level": "Legendary",
+          "quality_modifier": 0,
+          "required_level": 34,
+          "strikethrough_affix_ids": [],
+          "strikethrough_affixes": [],
+          "tex": 1903997048,
+          "upgrades": 0
+        },
+        {
+          "added_affix_ids": [],
+          "added_affixes": [],
+          "base_affix_ids": [
+            1212462,
+            577213,
+            577083,
+            577089,
+            577081
+          ],
+          "base_affixes": [
+            "240 Armor",
+            "Your Lucky Hit Chance is increased by <text class='c_random'>20%</text> while you have a <text class='c_important'><u>Barrier</u></text> active.",
+            "+8.5% Movement Speed",
+            "+22.5% Cold Resistance",
+            "+15% Shadow Resistance",
+            "+16.5% Fire Resistance"
+          ],
+          "id": 229473,
+          "itemtype": "Boots",
+          "name": "Boneweave Treads",
+          "parent": null,
+          "power": 480,
+          "quality_level": "Legendary",
+          "quality_modifier": 0,
+          "required_level": 31,
+          "strikethrough_affix_ids": [],
+          "strikethrough_affixes": [],
+          "tex": 1743829161,
+          "upgrades": 0
+        },
+        {
+          "added_affix_ids": [],
+          "added_affixes": [],
+          "base_affix_ids": [
+            1223890,
+            577197,
+            577081,
+            583632,
+            583646
+          ],
+          "base_affixes": [
+            "639 Armor",
+            "Becoming <text class='c_important'><u>Injured</u></text> while Crowd Controlled grants you <text class='c_important'><u>Unstoppable</u></text> for <text class='c_number'>4</text> seconds. This effect has a <text class='c_random'>29.89</text> second Cooldown.",
+            "0.02 Life On Kill",
+            "+15% Fire Resistance",
+            "25 Strength",
+            "21 Intelligence"
+          ],
+          "id": 229475,
+          "itemtype": "Helm",
+          "name": "Boneweave Helm",
+          "parent": null,
+          "power": 511,
+          "quality_level": "Legendary",
+          "quality_modifier": 0,
+          "required_level": 35,
+          "strikethrough_affix_ids": [],
+          "strikethrough_affixes": [],
+          "tex": 360960033,
+          "upgrades": 0
+        },
+        {
+          "added_affix_ids": [],
+          "added_affixes": [],
+          "base_affix_ids": [
+            579749,
+            577087,
+            577073,
+            577065,
+            1093658
+          ],
+          "base_affixes": [
+            "835 Armor",
+            "<text class='c_important'>Flame Shield</text> lets you move unhindered through enemies. Enemies you move through while <text class='c_important'>Flame Shield</text> is active are Immobilized for <text class='c_random'>2.63</text> seconds.",
+            "+16.5% Poison Resistance",
+            "+9.5% Lightning Damage",
+            "+9% Fire Damage",
+            "+7.5% Shock Skill Damage"
+          ],
+          "id": 459988,
+          "itemtype": "ChestArmor",
+          "name": "Adventurer's Tunic",
+          "parent": null,
+          "power": 477,
+          "quality_level": "Legendary",
+          "quality_modifier": 0,
+          "required_level": 31,
+          "strikethrough_affix_ids": [],
+          "strikethrough_affixes": [],
+          "tex": 2452802707,
+          "upgrades": 0
+        },
+        {
+          "added_affix_ids": [],
+          "added_affixes": [],
+          "base_affix_ids": [
+            583482,
+            583206,
+            577051
+          ],
+          "base_affixes": [
+            "6 All Stats",
+            "+4% Attack Speed",
+            "+5% Critical Strike Chance"
+          ],
+          "id": 565639,
+          "itemtype": "Gloves",
+          "name": "Fur-Lined Mitts",
+          "parent": null,
+          "power": 524,
+          "quality_level": "Rare",
+          "quality_modifier": 0,
+          "required_level": 41,
+          "strikethrough_affix_ids": [],
+          "strikethrough_affixes": [],
+          "tex": 1734855409,
+          "upgrades": 0
+        },
+        {
+          "added_affix_ids": [],
+          "added_affixes": [],
+          "base_affix_ids": [
+            577115,
+            1556126,
+            577053
+          ],
+          "base_affixes": [
+            "+12% Damage to Slowed Enemies",
+            "+9% Mastery Skill Damage",
+            "+28.5% Overpower Damage"
+          ],
+          "id": 459971,
+          "itemtype": "Staff",
+          "name": "Battle Staff",
+          "parent": null,
+          "power": 495,
+          "quality_level": "Rare",
+          "quality_modifier": 0,
+          "required_level": 38,
+          "strikethrough_affix_ids": [],
+          "strikethrough_affixes": [],
+          "tex": 4131558174,
+          "upgrades": 0
+        },
+        {
+          "added_affix_ids": [],
+          "added_affixes": [],
+          "base_affix_ids": [
+            1215132,
+            583482,
+            1193773,
+            577177,
+            577173
+          ],
+          "base_affixes": [
+            "If a <text class='c_important'>Core</text> Skill hits <text class='c_number'>4</text> or more enemies, <text class='c_random'>29.17%</text> of the Resource cost is refunded.",
+            "9 All Stats",
+            "+2.5% Lucky Hit Chance",
+            "+9% Critical Strike Damage",
+            "+0.09 Maximum Life"
+          ],
+          "id": 1215134,
+          "itemtype": "Ring",
+          "name": "Mother's Embrace",
+          "parent": null,
+          "power": 570,
+          "quality_level": "Unique",
+          "quality_modifier": 0,
+          "required_level": 40,
+          "strikethrough_affix_ids": [],
+          "strikethrough_affixes": [],
+          "tex": 3468537878,
+          "upgrades": 0
+        },
+        {
+          "added_affix_ids": [],
+          "added_affixes": [],
+          "base_affix_ids": [
+            578909,
+            1208394,
+            583643,
+            1083127,
+            761193
+          ],
+          "base_affixes": [
+            "522 Armor",
+            "When hit while not <text class='c_important'><u>Healthy</u></text>, a magical bubble is summoned around you for <text class='c_random'>3.85</text> seconds. While standing in the bubble, Players are <text class='c_important'><u>Immune</u></text>. Can only occur once every <text class='c_number'>90</text> seconds.",
+            "+12% Damage for VALUE2 Seconds After Killing an Elite",
+            "22 Dexterity",
+            "+11% Total Armor",
+            "+(0.8+0.6*2) Rank of Ball Lightning"
+          ],
+          "id": 459598,
+          "itemtype": "Legs",
+          "name": "Adventurer's Pants",
+          "parent": null,
+          "power": 522,
+          "quality_level": "Legendary",
+          "quality_modifier": 0,
+          "required_level": 36,
+          "strikethrough_affix_ids": [],
+          "strikethrough_affixes": [],
+          "tex": 215518898,
+          "upgrades": 0
+        },
+        {
+          "added_affix_ids": [],
+          "added_affixes": [],
+          "base_affix_ids": [
+            1212318,
+            761543,
+            577149,
+            1047055,
+            1083645
+          ],
+          "base_affixes": [
+            "When you cast <text class='c_important'>Blizzard</text> it will periodically spawn exploding <text class='c_important'>Ice Spikes</text> that deal <text class='c_random'>0.33</text> damage. Your <text class='c_important'>Ice Spikes</text> deal <text class='c_number'>15%</text> increased damage to <text class='c_important'><u>Frozen</u></text> enemies.",
+            "+ (1.4) Rank of All Conjuration Skills",
+            "5.5% Damage Reduction from Close Enemies",
+            "+ (1.4) Rank of All Defensive Skills",
+            "+2.6% Willpower"
+          ],
+          "id": 1308443,
+          "itemtype": "Amulet",
+          "name": "Amulet",
+          "parent": null,
+          "power": 464,
+          "quality_level": "Legendary",
+          "quality_modifier": 0,
+          "required_level": 30,
+          "strikethrough_affix_ids": [],
+          "strikethrough_affixes": [],
+          "tex": 3125733809,
+          "upgrades": 0
+        }
+      ],
+      "fog_of_wars": [],
+      "goldCollected": 20294092,
+      "hardcore": false,
+      "id": "fc5248b0-0716-11ee-b717-eb9366f58160",
+      "lastLogin": 1702774612610000000,
+      "lastUpdate": 1703546785,
+      "level": 42,
+      "monstersKilled": 5981,
+      "playersKilled": 0,
+      "power": 504,
+      "queue": 1,
+      "season": 0,
+      "seasonal": false,
+      "secondsPlayed": 81465,
+      "skillTree": [],
+      "skills": [
+        {
+          "desc": "",
+          "name": "Arc Lash"
+        },
+        {
+          "desc": "",
+          "name": "Chain Lightning"
+        },
+        {
+          "desc": "",
+          "name": "Teleport"
+        },
+        {
+          "desc": "",
+          "name": "Frost Nova"
+        },
+        {
+          "desc": "",
+          "name": "Fireball"
+        },
+        {
+          "desc": "",
+          "name": "Unstable Currents"
+        }
+      ],
+      "twitch": null,
+      "waypoints": [],
+      "worldTier": 0
+    }
+  ],
+  "clan_id": null,
+  "clan_tag": null,
+  "dungeons_completed": 1,
+  "players_killed": 0,
+  "twitch": null
+}

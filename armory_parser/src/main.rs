@@ -1,7 +1,7 @@
 use chrono::{DateTime, Utc};
 use reqwest;
 use serde::{Serialize, Deserialize};
-use serde_json::json;
+use serde_json::{json, Value};
 use std::{error, fmt, result};
 
 /// Player's account ID
@@ -25,8 +25,11 @@ enum Error {
     /// JSON parsing error
     JsonParse(serde_json::Error),
 
-    /// JSON expected array
-    JsonExpectedArray,
+    /// JSON is not a valid object
+    JsonObject(String),
+
+    /// IO error
+    IOError(std::io::Error),
 }
 
 /// Implement the formatter for our custom error type
@@ -39,8 +42,10 @@ impl fmt::Display for Error {
                 write!(f, "HTTP response not successful: {}", e),
             Error::JsonParse(e) => 
                 write!(f, "JSON parse error: {}", e),
-            Error::JsonExpectedArray =>
-                write!(f, "JSON expected array"),
+            Error::JsonObject(e) =>
+                write!(f, "JSON object error: {}", e),
+            Error::IOError(e) =>
+                write!(f, "IO error: {}", e),
         }
     }
 }
@@ -57,126 +62,216 @@ impl From<serde_json::Error> for Error {
         Error::JsonParse(err)
     }
 }
+impl From<std::io::Error> for Error {
+    fn from(err: std::io::Error) -> Error {
+        Error::IOError(err)
+    }
+}
 
 /// Custom Result type alias
 type Result<T> = result::Result<T, Error>;
 
-/// Character world tier (1-4)
 #[derive(Debug, Serialize, Deserialize)]
-struct WorldTier(u32);
+struct Account {
+    /// Total bosses killed
+    bosses_killed: u64,
 
-#[derive(Debug, Serialize, Deserialize)]
-struct Hero {
-    /// Total play time
-    play_time: chrono::Duration,
+    /// List of associated characters
+    characters: Vec<Character>,
 
-    /// Last time played
-    last_time_played: DateTime<Utc>,
+    /// Account clan ID
+    clan_id: Option<String>,
 
-    /// Monsters killed
-    monsters_killed: usize,
+    /// Account clan tag
+    clan_tag: Option<String>,
 
-    /// Elites killed
-    elites_killed: usize,
+    /// Total dungeons completed
+    dungeons_completed: u64,
 
-    /// Total gold collected
-    gold_collected: usize,
+    /// Total players killed
+    players_killed: u64,
 
-    /// Power
-    power: usize,
-
-    /// Current world tier
-    world_tier: WorldTier,
+    /// Linked twitch account
+    twitch: Option<String>,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 struct Character {
+    /// @TODO: Time of last account data update
+    #[serde(rename = "accountLastUpdate")]
+    account_last_update: u64,
+
+    /// List of found Altars of Lilith
+    altars: Vec<String>,
+
     /// Name
     name: String,
 
-    /// ID
-    id: String,
+    /// Clan
+    clan: Option<String>,
 
     /// Class
     class: String,
 
-    /// Level
-    level: u64,
+    /// List of completed quests
+    completed_quests: Vec<String>,
 
-    /// Time of last data update
-    last_update: DateTime<Utc>,
+    /// @TODO: Time account was created at
+    #[serde(rename = "createdAt")]
+    created_at: u64,
+
+    /// @TODO: ??
+    dead: bool,
+
+    /// Total elites killed
+    #[serde(rename = "elitesKilled")]
+    elites_killed: u64,
+
+    /// List of equipped items
+    equipment: Vec<Item>,
+
+    /// @TODO: ??
+    fog_of_wars: Vec<String>,
+
+    /// Total gold collected
+    #[serde(rename = "goldCollected")]
+    gold_collected: u64,
 
     /// Hardcore mode enabled
     hardcore: bool,
 
-    /// Seasonal mode enabled
-    seasonal: bool,
-}
+    /// Associated character ID
+    id: String,
 
-#[derive(Debug)]
-struct Account {
-    /// Account ID
-    account_id: u64,
+    /// @TODO: Time of last login
+    #[serde(rename = "lastLogin")]
+    last_login: u64,
 
-    /// Dungeons completed
-    dungeons_completed: u64,
+    /// @TODO: Time of last character data update
+    #[serde(rename = "lastUpdate")]
+    last_update: u64,
 
-    /// Players killed
+    /// Level
+    level: u64,
+
+    /// Total monsters killed
+    #[serde(rename = "monstersKilled")]
+    monsters_killed: u64,
+
+    /// Total players killed
+    #[serde(rename = "playersKilled")]
     players_killed: u64,
 
-    /// Clan ID
-    clan_id: String,
+    /// Current average power level
+    power: u64,
 
-    /// Clan tag
-    clan_tag: String,
+    /// Current position in queue (?)
+    queue: u64,
 
-    /// Twitch
-    twitch: String,
+    /// Associated Diablo season
+    season: u64,
 
-    /// List of characters
-    characters: Vec<Character>,
+    /// Seasonal mode enabled
+    seasonal: bool,
+
+    /// Total time played
+    #[serde(rename = "secondsPlayed")]
+    play_time: u64,
+
+    /// List of skill tree (?)
+    #[serde(rename = "skillTree")]
+    skill_tree: Vec<String>,
+
+    /// List of enabled skills
+    skills: Vec<Skill>,
+
+    /// Associated twitch account
+    twitch: Option<String>,
+
+    /// List of waypoints (?)
+    waypoints: Vec<String>,
+
+    /// Current world tier (1-4)
+    #[serde(rename = "worldTier")]
+    world_tier: u64,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+struct Item {
+    /// List of added affixes and their ids
+    added_affix_ids: Vec<u64>,
+    added_affixes: Vec<String>,
+
+    /// List of base affixes and their ids
+    base_affix_ids: Vec<u64>,
+    base_affixes: Vec<String>,
+
+    /// Item ID
+    id: u64,
+
+    /// Item type (helmet, chest, boots, etc)
+    #[serde(rename = "itemtype")]
+    item_type: String,
+
+    /// Name of the item
+    name: String,
+
+    /// Parent of the item (?)
+    parent: Option<u64>,
+
+    /// Item power level
+    power: u64,
+
+    /// Quality level of the item (unique, legendary, etc)
+    quality_level: String,
+    quality_modifier: u64,
+
+    /// Required level to equip the item
+    required_level: u64,
+
+    /// @TODO: ???
+    strikethrough_affix_ids: Vec<u64>,
+    strikethrough_affixes: Vec<String>,
+    tex: u64,
+    
+    /// Level of applied upgrades
+    upgrades: u64,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+struct Skill {
+    /// Description of the skill
+    #[serde(rename = "desc")]
+    description: String,
+
+    /// Name of the skill
+    name: String,
 }
 
 impl Account {
     fn parse(account_id: u64) -> Result<Self> {
         let url = format!("{}/{}", BASE_URL, account_id);
-        let data = Self::get_json(&url)?;
+        let mut account_data = Self::get_json(&url)?;
 
-        let dungeons_completed = data["dungeons_completed"].as_u64().unwrap();
-        let players_killed = data["players_killed"].as_u64().unwrap();
-        let clan_id = data["clan_id"].to_string();
-        let clan_tag = data["clan_tag"].to_string();
-        let twitch = data["twitch"].to_string();
-        let characters = data["characters"].as_array()
-            .ok_or(Error::JsonExpectedArray)?;
+        if let Value::Array(characters) = &mut account_data["characters"] {
+            for character in characters.iter_mut() {
+                if let Value::String(character_id) = &character["id"] {
+                    // Build the character detail URL
+                    let url = format!("{}/{}", url, character_id);
 
-        let characters: Vec<Character> = characters.iter().map(|character| {
-            let character_id = character["id"].as_str()
-                .unwrap_or_default().to_string();
+                    // Fetch character data
+                    let mut character_data = Self::get_json(&url)?;
 
-            let url = format!("{}/{}/{}", url, account_id, character_id);
-            println!("url: {}", url);
-
-            Character {
-                name: character["name"].to_string(),
-                id: character_id,
-                class: character["class"].to_string(),
-                level: character["level"].as_u64().unwrap(),
-                last_update: DateTime::parse_from_rfc3339(
-                    character["lastUpdate"].as_str().unwrap()).unwrap()
-                    .with_timezone(&Utc),
-                hardcore: character["hardcore"].as_bool().unwrap(),
-                seasonal: character["seasonal"].as_bool().unwrap(),
+                    // Merge character details into the account's character
+                    Self::merge_character(character, &mut character_data)?;
+                }
             }
-        }).collect();
+        }
 
-        Ok(Account { 
-            account_id, dungeons_completed, players_killed, clan_id, 
-            clan_tag, twitch, characters 
-        })
+        Ok(serde_json::from_value(account_data)?)
     }
     
-    fn get_json(url: &str) -> Result<serde_json::Value> {
+    fn get_json(url: &str) -> Result<Value> {
         let client = reqwest::blocking::Client::new();
         let response = client.get(url).send()?;
 
@@ -185,10 +280,56 @@ impl Account {
             status => Err(Error::HttpResponseNonSuccess(status)),
         }
     }
+
+    fn merge_character(character: &mut Value, details: &mut Value) 
+            -> Result<()> {
+        // Ensure both inputs are objects before we merge them
+        let character_obj = character.as_object_mut().ok_or_else(|| {
+            Error::JsonObject(
+                "Existing character entry is not a JSON object".to_string(),
+            )
+        })?;
+        let details_obj = details.as_object().ok_or_else(|| {
+            Error::JsonObject(
+                "Character details entry is not a JSON object".to_string(),
+            )
+        })?;
+
+        // Iterate over each field in the details entry and update/add in 
+        // character
+        for (key, value) in details_obj {
+            // If the key does not exist or the value is different, 
+            // then update/add it
+            if !character_obj.contains_key(key) || 
+                &character_obj[key] != value {
+                character_obj.insert(key.clone(), value.clone());
+            }
+        }
+
+        Ok(())
+    }
+
+    fn save_to_file(&self, account_id: u64) -> Result<()> {
+        // Serialize the account to a JSON string
+        let serialized = serde_json::to_string_pretty(&self)?;
+
+        // Assign the filename to be `account_{account_id}.json`
+        let filename = format!("account_{}.json", account_id);
+
+        // Write the serialized data to the file
+        std::fs::write(&filename, serialized)?;
+
+        println!("Account saved to file: {}", filename);
+        Ok(())
+    }
 }
 
 fn main() -> Result<()> {
     let account = Account::parse(ACCOUNT_ID)?;
     println!("{:?}", account);
+
+    // Save the account to a file
+    account.save_to_file(ACCOUNT_ID)?;
+
     Ok(())
 }
