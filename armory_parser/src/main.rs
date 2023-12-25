@@ -249,17 +249,21 @@ struct Skill {
 }
 
 impl Account {
+    /// Parses account data from the D4Armory API for a given account ID
     fn parse(account_id: u64) -> Result<Self> {
+        // Build the URL and fetch account data from the API as JSON
         let url = format!("{}/{}", BASE_URL, account_id);
         let mut account_data = Self::get_json(&url)?;
 
+        // Process each character associated with the account
         if let Value::Array(characters) = &mut account_data["characters"] {
             for character in characters.iter_mut() {
+                // Check if the character has an ID
                 if let Value::String(character_id) = &character["id"] {
                     // Build the character detail URL
                     let url = format!("{}/{}", url, character_id);
 
-                    // Fetch character data
+                    // Fetch character data from the API
                     let mut character_data = Self::get_json(&url)?;
 
                     // Merge character details into the account's character
@@ -268,19 +272,24 @@ impl Account {
             }
         }
 
+        // Deserialize JSON data into Account struct
         Ok(serde_json::from_value(account_data)?)
     }
     
+    /// Fetches JSON data from a given URL
     fn get_json(url: &str) -> Result<Value> {
+        // Create an HTTP client and make a GET request to the URL
         let client = reqwest::blocking::Client::new();
         let response = client.get(url).send()?;
 
+        // Process the HTTP response
         match response.status() {
             reqwest::StatusCode::OK => Ok(response.json()?),
             status => Err(Error::HttpResponseNonSuccess(status)),
         }
     }
 
+    /// Merge character details into the account's character list
     fn merge_character(character: &mut Value, details: &mut Value) 
             -> Result<()> {
         // Ensure both inputs are objects before we merge them
@@ -295,11 +304,9 @@ impl Account {
             )
         })?;
 
-        // Iterate over each field in the details entry and update/add in 
-        // character
+        // Iterate over each field in the details entry
         for (key, value) in details_obj {
-            // If the key does not exist or the value is different, 
-            // then update/add it
+            // Update the field if it doesn't exist or has changed
             if !character_obj.contains_key(key) || 
                 &character_obj[key] != value {
                 character_obj.insert(key.clone(), value.clone());
@@ -309,8 +316,9 @@ impl Account {
         Ok(())
     }
 
+    /// Serialize the account data and save it to a file
     fn save_to_file(&self, account_id: u64) -> Result<()> {
-        // Serialize the account to a JSON string
+        // Serialize the account to a prettified JSON string
         let serialized = serde_json::to_string_pretty(&self)?;
 
         // Assign the filename to be `account_{account_id}.json`
