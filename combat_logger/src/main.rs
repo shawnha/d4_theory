@@ -1,11 +1,11 @@
 
 mod memory;
 
-use memory::{MemoryReader, Error, Result};
+use memory::{MemoryReader, Result};
 
 fn main() -> Result<()> {
     let mut game_reader = MemoryReader::new("Diablo IV.exe")?;
-    println!("{}", game_reader.get_process_id());
+    println!("{}", game_reader.process_id);
 
     Ok(())
 }

@@ -67,7 +67,7 @@ impl From<&str> for Error {
 /// Custom Result type alias
 pub type Result<T> = std::result::Result<T, Error>;
 
-struct Memory {
+pub struct MemoryReader {
     // @TODO:
     //  - find processes
     //  - find modules 
@@ -81,12 +81,19 @@ struct Memory {
     //  - load/unload modules
     //  - get page information
     //  - enumerate process threads
-    process_id: i32,
+    pub process_id: i32,
 }
 
-impl Memory {
+impl MemoryReader {
+    /// Create a new memory reader for given process name
+    pub fn new(process_name: &str) -> Result<Self> {
+        Ok(Self {
+            process_id: Self::find_process(process_name)?,
+        })
+    }
+
     /// Find a process by name
-    fn find_process(name: &str) -> Result<Self> {
+    fn find_process(name: &str) -> Result<i32> {
         // Place quotes around the process name to handle any spaces
         let name = format!("\"{}\"", name);
 
@@ -110,28 +117,10 @@ impl Memory {
             // The first element should be the process id
             if !parts.is_empty() {
                 let process_id = parts[0].parse::<i32>()?;
-                return Ok(Memory { process_id });
+                return Ok(process_id);
             }
         }
 
         Err(Error::ProcessNotFound(name))
-    }
-}
-
-pub struct MemoryReader {
-    memory: Memory,
-}
-
-impl MemoryReader {
-    /// Create a new memory reader for given process name
-    pub fn new(process_name: &str) -> Result<Self> {
-        Ok(Self {
-            memory: Memory::find_process(process_name)?,
-        })
-    }
-
-    /// Gets the process ID from memory
-    pub fn get_process_id(self) -> i32 {
-        self.memory.process_id
     }
 }
