@@ -52,17 +52,17 @@ impl std::fmt::Display for Error {
 /// Implement standard error trait and conversion from other error types
 impl std::error::Error for Error {}
 impl From<reqwest::Error> for Error {
-    fn from(err: reqwest::Error) -> Error {
+    fn from(err: reqwest::Error) -> Self {
         Error::HttpRequest(err)
     }
 }
 impl From<serde_json::Error> for Error {
-    fn from(err: serde_json::Error) -> Error {
+    fn from(err: serde_json::Error) -> Self {
         Error::JsonParse(err)
     }
 }
 impl From<std::io::Error> for Error {
-    fn from(err: std::io::Error) -> Error {
+    fn from(err: std::io::Error) -> Self {
         Error::IOError(err)
     }
 }
@@ -161,7 +161,7 @@ struct Character {
     #[serde(rename = "playersKilled")]
     players_killed: u64,
 
-    /// Current average power level
+    /// Average item power of equipment
     power: u64,
 
     /// Current position in queue (?)
