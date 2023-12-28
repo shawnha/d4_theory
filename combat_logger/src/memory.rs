@@ -267,3 +267,80 @@ impl MemoryReader {
         }
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use std::io::Write;
+
+    /// Spawn a dummy process that sleeps for 10 seconds
+    /// Returns the process ID
+    fn spawn_dummy_process() -> i32 {
+        let process = std::process::Command::new("sleep")
+            .arg("10")
+            .spawn()
+            .expect("Failed to spawn dummy process");
+        process.id() as i32
+    }
+
+    /// Parses the `/proc/{process_id}/maps` file and returns a vector of 
+    /// writable memory regions
+    fn get_writable_regions(process_id: i32) -> Result<Vec<(usize, usize)>> {
+        let path = format!("/proc/{}/maps", process_id);
+        let path = std::path::Path::new(&path);
+        let file = std::fs::File::open(&path)?;
+        let reader = std::io::BufReader::new(&file);
+
+        let mut writable_regions = vec![];
+        for line in reader.lines() {
+            let line = line?;
+            
+            let fields: Vec<&str> = line.split_whitespace().collect();
+            if fields.len() > 1 {
+                let range = fields[0];
+                let perms = fields[1];
+                if perms.contains('w') {
+                    let addrs: Vec<&str> = range.split('-').collect();
+                    if addrs.len() == 2 {
+                        let start = usize::from_str_radix(addrs[0], 16)
+                            .expect("Invalid address");
+                        let end = usize::from_str_radix(addrs[1], 16)
+                            .expect("Invalid address");
+                        writable_regions.push((start, end));
+                    }
+                }
+            }
+        }
+
+        Ok(writable_regions)
+    }
+
+    #[test]
+    fn test_read_write_bytes() {
+        let process_id = spawn_dummy_process();
+        std::thread::sleep(std::time::Duration::from_secs(1));
+
+        let writable_regions = get_writable_regions(process_id).unwrap();
+        let (start_addr, end_addr) = writable_regions.first()
+            .expect("No writable region found");
+
+        let region_size = end_addr - start_addr;
+        let test_data: Vec<u8> = (0..region_size as u8).collect();
+
+        let memory_reader = MemoryReader::new("sleep").unwrap();
+
+        let write_result = memory_reader.write_bytes(*start_addr, &test_data);
+        assert!(write_result.is_ok(), "Failed to write to memory region");
+
+        let read_result = memory_reader.read_bytes(*start_addr, region_size);
+        assert!(read_result.is_ok(), "Failed to read from memory region");
+
+        let read_data = read_result.unwrap();
+        assert_eq!(test_data, read_data, "Read data does not match test data");
+        std::process::Command::new("kill")
+            .arg("-9")
+            .arg(process_id.to_string())
+            .status().unwrap();
+    }
+    
+}
