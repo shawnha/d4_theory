@@ -68,19 +68,6 @@ impl From<&str> for Error {
 pub type Result<T> = std::result::Result<T, Error>;
 
 pub struct MemoryReader {
-    // @TODO:
-    //  - find processes
-    //  - find modules 
-    //  - find symbols
-    //  - read/write/set memory
-    //  - allocate/protect memory
-    //  - scan memory by pattern/signature
-    //  - hook/unhook functions
-    //  - assemble/dissassemble code (JIT)
-    //  - VMT hooking/unhooking
-    //  - load/unload modules
-    //  - get page information
-    //  - enumerate process threads
     pub process_id: i32,
 }
 
