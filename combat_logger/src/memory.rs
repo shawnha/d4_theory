@@ -8,6 +8,9 @@ pub enum Error {
     /// Failed to read memory
     ReadMemoryFailed(usize),
 
+    /// Read memory but was incomplete
+    ReadMemoryPartial(usize, usize),
+
     /// IO error
     IOError(std::io::Error),
 
@@ -27,8 +30,12 @@ impl std::fmt::Display for Error {
         match self {
             Error::ProcessNotFound(e) =>
                 write!(f, "Process '{}' not found", e),
-            Error::ReadMemoryFailed(e) =>
-                write!(f, "Failed to read memory at address 0x{:x}", e),
+            Error::ReadMemoryFailed(addr) =>
+                write!(f, "Failed to read memory at address 0x{:x}", addr),
+            Error::ReadMemoryPartial(addr, bytes) =>
+                write!(f, 
+                    "Partial read: only read {} bytes from address 0x{:x}",
+                    bytes, addr),
             Error::IOError(e) =>
                 write!(f, "IO error: {}", e),
             Error::UTF8Conversion(e) =>
@@ -67,7 +74,13 @@ impl From<&str> for Error {
 /// Custom Result type alias
 pub type Result<T> = std::result::Result<T, Error>;
 
+/// Custom memory range type
+pub type MemoryRange = core::ops::Range<u64>;
+
+const CHUNK_SIZE: usize = 256;
+
 pub struct MemoryReader {
+    /// Process identifier
     pub process_id: i32,
 }
 
@@ -80,7 +93,7 @@ impl MemoryReader {
     }
 
     /// Find a process by name
-    fn find_process(name: &str) -> Result<i32> {
+    pub fn find_process(name: &str) -> Result<i32> {
         // Place quotes around the process name to handle any spaces
         let name = format!("\"{}\"", name);
 
@@ -109,5 +122,99 @@ impl MemoryReader {
         }
 
         Err(Error::ProcessNotFound(name))
+    }
+
+    /// Reads bytes from a process at the given address for the given length
+    pub fn read_bytes(&self, address: usize, len: usize) -> Result<Vec<u8>> {
+        // Setup local/remote IO vectors for our buffer and memory that we 
+        // are reading
+        let mut buffer = vec![0u8; len];
+        let local_iovec = libc::iovec {
+            iov_base: buffer.as_mut_ptr() as *mut libc::c_void,
+            iov_len: len,
+        };
+        let remote_iovec = libc::iovec {
+            iov_base: address as *mut libc::c_void,
+            iov_len: len,
+        };
+
+        // Perform the read operation using PROCESS_VM_READV syscall
+        let bytes_read = unsafe {
+            libc::process_vm_readv(
+                self.process_id as libc::pid_t,
+                &local_iovec as *const libc::iovec,
+                1,
+                &remote_iovec as *const libc::iovec,
+                1,
+                0,
+            )
+        };
+
+        // Check the result of the read operation
+        if bytes_read == -1 {
+            Err(Error::ReadMemoryFailed(address))
+        }
+        else if bytes_read != len as isize {
+            Err(Error::ReadMemoryPartial(address, bytes_read as usize))
+        }
+        else {
+            Ok(buffer)
+        }
+    }
+
+   /// Reads a string from a process at the given address for the given range
+    pub fn read_string(&self, range: MemoryRange) -> Result<String> {
+        let mut buffer = vec![];
+        let mut start = range.start as usize;
+        let mut reached_end = false;
+
+        while start < range.end as usize {
+            // Calculate the length to read, making sure not to overflow
+            let mut length_to_read = CHUNK_SIZE;
+            if start + length_to_read > range.end as usize {
+                length_to_read = range.end as usize - start;
+            }
+
+            // Read a chunk of memory
+            let chunk_result = self.read_bytes(start, length_to_read);
+            match chunk_result {
+                Ok(chunk) => {
+                    // Check if there is a null terminator in the chunk
+                    if let Some(end) = chunk.iter().position(|&b| b == 0) {
+                        // Null terminator found
+                        buffer.extend_from_slice(&chunk[..end]);
+                        break;
+                    }
+                    else if chunk.len() < length_to_read {
+                        // Less data was read than requested
+                        buffer.extend(chunk);
+                        reached_end = true;
+                        break;
+                    }
+                    else {
+                        // Proceed normally
+                        buffer.extend(chunk);
+                    }
+
+                    // Move to the next block of memory
+                    start += length_to_read;
+                }
+                Err(e) => { return Err(e); }
+            }
+        }
+
+        // Convert buffer to a String
+        String::from_utf8(buffer)
+            .map_err(|_| Error::ReadMemoryFailed(range.start as usize))
+            .and_then(|s| {
+                if reached_end {
+                    Err(
+                        Error::ReadMemoryPartial(range.start as usize, s.len())
+                    )
+                }
+                else {
+                    Ok(s)
+                }
+            })
     }
 }
