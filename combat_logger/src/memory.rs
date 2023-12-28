@@ -11,6 +11,12 @@ pub enum Error {
     /// Read memory but was incomplete
     ReadMemoryPartial(usize, usize),
 
+    /// Failed to write memory
+    WriteMemoryFailed(usize),
+
+    /// Wrote memory but was incomplete
+    WriteMemoryPartial(usize, usize),
+
     /// IO error
     IOError(std::io::Error),
 
@@ -31,10 +37,16 @@ impl std::fmt::Display for Error {
             Error::ProcessNotFound(e) =>
                 write!(f, "Process '{}' not found", e),
             Error::ReadMemoryFailed(addr) =>
-                write!(f, "Failed to read memory at address 0x{:x}", addr),
+                write!(f, "Failed to read memory from address 0x{:x}", addr),
             Error::ReadMemoryPartial(addr, bytes) =>
                 write!(f, 
                     "Partial read: only read {} bytes from address 0x{:x}",
+                    bytes, addr),
+            Error::WriteMemoryFailed(addr) =>
+                write!(f, "Failed to write memory at address 0x{:x}", addr),
+            Error::WriteMemoryPartial(addr, bytes) =>
+                write!(f,
+                    "Partial write: only wrote {} bytes at address 0x{:x}",
                     bytes, addr),
             Error::IOError(e) =>
                 write!(f, "IO error: {}", e),
@@ -162,7 +174,7 @@ impl MemoryReader {
         }
     }
 
-   /// Reads a string from a process at the given address for the given range
+    /// Reads a string from a process at the given address for the given range
     pub fn read_string(&self, range: MemoryRange) -> Result<String> {
         let mut buffer = vec![];
         let mut start = range.start as usize;
@@ -216,5 +228,42 @@ impl MemoryReader {
                     Ok(s)
                 }
             })
+    }
+
+    /// Writes bytes to a process at the given address
+    pub fn write_bytes(&self, address: usize, data: &[u8]) -> Result<()> {
+        // Setup local/remote IO vectors for our buffer and memory that we 
+        // are writing to
+        let local_iovec = libc::iovec {
+            iov_base: data.as_ptr() as *mut libc::c_void,
+            iov_len: data.len(),
+        };
+        let remote_iovec = libc::iovec {
+            iov_base: address as *mut libc::c_void,
+            iov_len: data.len(),
+        };
+
+        // Perform the write operation using PROCESS_VM_WRITEV syscall
+        let bytes_written = unsafe {
+            libc::process_vm_writev(
+                self.process_id as libc::pid_t,
+                &local_iovec as *const libc::iovec,
+                1,
+                &remote_iovec as *const libc::iovec,
+                1,
+                0,
+            )
+        };
+
+        // Check the result of the write operation
+        if bytes_written == -1 {
+            Err(Error::WriteMemoryFailed(address))
+        }
+        else if bytes_written != data.len() as isize {
+            Err(Error::WriteMemoryPartial(address, bytes_written as usize))
+        }
+        else {
+            Ok(())
+        }
     }
 }
