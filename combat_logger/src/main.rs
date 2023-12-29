@@ -1,7 +1,6 @@
 
-mod memory;
 
-use memory::{MemoryReader, Result};
+use combat_logger::memory::{MemoryReader, Result};
 
 fn main() -> Result<()> {
     let game_reader = MemoryReader::new("Diablo IV.exe")?;

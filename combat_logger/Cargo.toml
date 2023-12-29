@@ -3,6 +3,10 @@ name = "combat_logger"
 version = "0.1.0"
 edition = "2021"
 
+[lib]
+name = "combat_logger"
+path = "src/lib.rs"
+
 [dependencies]
 libc = "0.2"
 tempfile = "3"
