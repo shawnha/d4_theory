@@ -1,5 +1,4 @@
 
-
 use combat_logger::memory::{MemoryReader, Result};
 
 fn main() -> Result<()> {
