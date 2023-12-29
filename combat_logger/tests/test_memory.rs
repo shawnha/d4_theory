@@ -22,7 +22,6 @@ fn run_test_binary() -> (i32, usize, usize) {
     let mut memory_range = (0, 0);
     for line in output.lines() {
         let line = line.expect("Failed to read line from binary stdout");
-        println!("{}", line);
         let parts: Vec<&str> = line.split('-')
             .map(|s| s.trim_start_matches("0x"))
             .collect();
