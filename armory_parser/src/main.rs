@@ -1,4 +1,5 @@
 use chrono::{DateTime, Utc};
+use regex::Regex;
 use reqwest;
 use serde::{Serialize, Deserialize};
 use serde_json::{json, Value};
@@ -312,6 +313,22 @@ impl Account {
             }
         }
 
+        // Clean HTML tags from all `base_affixes`
+        if let Some(equipment) = character_obj.get_mut("equipment")
+                .and_then(|x| x.as_array_mut()) {
+            for item in equipment.iter_mut() {
+                if let Some(base_affixes) = item.get_mut("base_affixes")
+                        .and_then(|x| x.as_array_mut()) {
+                    for base_affix in base_affixes.iter_mut() {
+                        if let Some(text) = base_affix.as_str() {
+                            *base_affix = Value::String(
+                                Self::remove_html_tags(text));
+                        }
+                    }
+                }
+            }
+        }
+
         Ok(())
     }
 
@@ -328,6 +345,12 @@ impl Account {
 
         println!("Account saved to file: {}", filename);
         Ok(())
+    }
+
+    /// Removes HTML tags from a given string
+    fn remove_html_tags(text: &str) -> String {
+        let re = Regex::new(r"</?[^>]+(>|$)").expect("Invalid regex pattern");
+        re.replace_all(text, "").to_string()
     }
 }
 
