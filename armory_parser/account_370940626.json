@@ -303,7 +303,7 @@
       "monstersKilled": 1647,
       "playersKilled": 0,
       "power": 147,
-      "queue": 0,
+      "queue": 1,
       "season": 0,
       "seasonal": false,
       "secondsPlayed": 6364,
@@ -339,7 +339,7 @@
       "worldTier": 0
     },
     {
-      "accountLastUpdate": 1703972558,
+      "accountLastUpdate": 1703973328,
       "altars": [],
       "name": "이라",
       "clan": null,
@@ -414,7 +414,7 @@
             578708
           ],
           "added_affixes": [
-            "<text class='c_important'>Basic</text> Skills grant <text class='c_number'>28%</text> Damage Reduction for <text class='c_random'>6.56</text> seconds."
+            "Basic Skills grant 28% Damage Reduction for 6.56 seconds."
           ],
           "base_affix_ids": [
             577089,
@@ -621,7 +621,7 @@
             578792
           ],
           "added_affixes": [
-            "You gain <text class='c_random'>1.3%</text> increased Armor for <text class='c_number'>5.6</text> seconds when you deal any form of damage, stacking up to <text class='c_random'>78.26%</text>."
+            "You gain 1.3% increased Armor for 5.6 seconds when you deal any form of damage, stacking up to 78.26%."
           ],
           "base_affix_ids": [
             583643,
@@ -747,12 +747,12 @@
       "hardcore": false,
       "id": "60878600-9c82-11ee-97c3-37e9d24e8885",
       "lastLogin": 1703826177460000000,
-      "lastUpdate": 1703971786,
+      "lastUpdate": 1703972591,
       "level": 71,
       "monstersKilled": 21145,
       "playersKilled": 0,
       "power": 785,
-      "queue": 2,
+      "queue": 1,
       "season": 2,
       "seasonal": true,
       "secondsPlayed": 88559,
@@ -788,7 +788,7 @@
       "worldTier": 3
     },
     {
-      "accountLastUpdate": 1703972558,
+      "accountLastUpdate": 1703973328,
       "altars": [],
       "name": "크로",
       "clan": null,
@@ -1070,12 +1070,12 @@
       "hardcore": false,
       "id": "fc5248b0-0716-11ee-b717-eb9366f58160",
       "lastLogin": 1702774612610000000,
-      "lastUpdate": 1703548263,
+      "lastUpdate": 1703972591,
       "level": 42,
       "monstersKilled": 5981,
       "playersKilled": 0,
       "power": 504,
-      "queue": 2,
+      "queue": 1,
       "season": 0,
       "seasonal": false,
       "secondsPlayed": 81465,

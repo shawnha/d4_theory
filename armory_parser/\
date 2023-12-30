@@ -313,14 +313,23 @@ impl Account {
             }
         }
 
-        // Clean HTML tags from all `base_affixes` and `added_affixes`
+        // Clean HTML tags from all `base_affixes`
         if let Some(equipment) = character_obj.get_mut("equipment")
                 .and_then(|x| x.as_array_mut()) {
             for item in equipment.iter_mut() {
-                Self::clean_affix_field(item, "base_affixes");
-                Self::clean_affix_field(item, "added_affixes");
+                if let Some(base_affixes) = item.get_mut("base_affixes")
+                        .and_then(|x| x.as_array_mut()) {
+                    for base_affix in base_affixes.iter_mut() {
+                        if let Some(text) = base_affix.as_str() {
+                            *base_affix = Value::String(
+                                Self::remove_html_tags(text));
+                        }
+                    }
+                }
             }
         }
+
+        // Clean HTML tags from all `added_affixes`
         
         Ok(())
     }
@@ -346,14 +355,19 @@ impl Account {
         re.replace_all(text, "").to_string()
     }
 
-    /// Clean HTML tags from given affix field
-    fn clean_affix_field(item: &mut Value, field: &str) {
-        if let Some(affixes) = item.get_mut(field)
+    /// Clean HTML tags from given field
+    fn clean_field(character_obj: &mut Value, field: &str) {
+        if let Some(equipment) = character_obj.get_mut("equipment")
                 .and_then(|x| x.as_array_mut()) {
-            for affix in affixes.iter_mut() {
-                if let Some(text) = affix.as_str() {
-                *affix = Value::String(
-                    Self::remove_html_tags(text));
+            for item in equipment.iter_mut() {
+                if let Some(affixes) = item.get_mut(field)
+                        .and_then(|x| x.as_array_mut()) {
+                    for affix in affixes.iter_mut() {
+                        if let Some(text) = affix.as_str() {
+                            *affix = Value::String(
+                                Self::remove_html_tags(text));
+                        }
+                    }
                 }
             }
         }
