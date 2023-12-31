@@ -348,8 +348,7 @@ impl Account {
         if let Some(Value::Array(affixes)) = item.get_mut(field) {
             for affix in affixes.iter_mut() {
                 if let Some(text) = affix.as_str() {
-                    *affix = Value::String(
-                        Self::remove_html_tags(text));
+                    *affix = Value::String(Self::remove_html_tags(text));
                 }
             }
         }
