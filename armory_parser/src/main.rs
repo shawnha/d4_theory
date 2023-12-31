@@ -352,7 +352,7 @@ impl Account {
         let serialized = serde_json::to_string_pretty(&self)?;
 
         // Assign the filename to be `account_{account_id}.json`
-        let filename = format!("account_{}.json", account_id);
+        let filename = format!("data/account_{}.json", account_id);
 
         // Write the serialized data to the file
         std::fs::write(&filename, serialized)?;
