@@ -1,8 +1,7 @@
-use chrono::{DateTime, Utc};
 use regex::Regex;
 use reqwest;
 use serde::{Serialize, Deserialize};
-use serde_json::{json, Value};
+use serde_json::{Value};
 
 /// Player's account ID
 const ACCOUNT_ID: u64 = 370940626;
@@ -293,7 +292,7 @@ impl Account {
     fn merge_character(character: &mut Value, details: &mut Value) 
             -> Result<()> {
         // Ensure both inputs are objects before we merge them
-        let character_obj = character.as_object_mut().ok_or_else(|| {
+        let char_obj= character.as_object_mut().ok_or_else(|| {
             Error::JsonObject(
                 "Existing character entry is not a JSON object".to_string(),
             )
@@ -307,15 +306,13 @@ impl Account {
         // Iterate over each field in the details entry
         for (key, value) in details_obj {
             // Update the field if it doesn't exist or has changed
-            if !character_obj.contains_key(key) || 
-                &character_obj[key] != value {
-                character_obj.insert(key.clone(), value.clone());
+            if !char_obj.contains_key(key) || &char_obj[key] != value {
+                char_obj.insert(key.clone(), value.clone());
             }
         }
 
         // Clean HTML tags from all `base_affixes` and `added_affixes`
-        if let Some(equipment) = character_obj.get_mut("equipment")
-                .and_then(|x| x.as_array_mut()) {
+        if let Some(Value::Array(equipment)) = char_obj.get_mut("equipment") {
             for item in equipment.iter_mut() {
                 Self::clean_affix_field(item, "base_affixes");
                 Self::clean_affix_field(item, "added_affixes");
@@ -348,12 +345,11 @@ impl Account {
 
     /// Clean HTML tags from given affix field
     fn clean_affix_field(item: &mut Value, field: &str) {
-        if let Some(affixes) = item.get_mut(field)
-                .and_then(|x| x.as_array_mut()) {
+        if let Some(Value::Array(affixes)) = item.get_mut(field) {
             for affix in affixes.iter_mut() {
                 if let Some(text) = affix.as_str() {
-                *affix = Value::String(
-                    Self::remove_html_tags(text));
+                    *affix = Value::String(
+                        Self::remove_html_tags(text));
                 }
             }
         }
