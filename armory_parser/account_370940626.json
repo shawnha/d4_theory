@@ -2,15 +2,15 @@
   "bosses_killed": 20,
   "characters": [
     {
-      "accountLastUpdate": 1704051459,
+      "account_last_update": 1704055416,
       "altars": [],
       "name": "가렌",
       "clan": null,
       "class": "Barbarian",
       "completed_quests": [],
-      "createdAt": 1686608362052000000,
+      "created_at": 1686608362052000000,
       "dead": false,
-      "elitesKilled": 30,
+      "elites_killed": 30,
       "equipment": [
         {
           "added_affix_ids": [],
@@ -18,7 +18,7 @@
           "base_affix_ids": [],
           "base_affixes": [],
           "id": 1037975,
-          "itemtype": "Amulet",
+          "item_type": "Amulet",
           "name": "Choker of Penance",
           "parent": null,
           "power": 40,
@@ -41,7 +41,7 @@
             "10 Willpower"
           ],
           "id": 440546,
-          "itemtype": "Boots",
+          "item_type": "Boots",
           "name": "Wanderer's Boots",
           "parent": null,
           "power": 158,
@@ -67,7 +67,7 @@
             "+ (1.4) Rank of Rend"
           ],
           "id": 218948,
-          "itemtype": "Gloves",
+          "item_type": "Gloves",
           "name": "Fur-Lined Mitts",
           "parent": null,
           "power": 187,
@@ -89,7 +89,7 @@
             "+7.5% Damage to Close Enemies"
           ],
           "id": 440997,
-          "itemtype": "Polearm",
+          "item_type": "Polearm",
           "name": "Bardiche",
           "parent": null,
           "power": 167,
@@ -112,7 +112,7 @@
             "+2.5% Shadow Resistance"
           ],
           "id": 440972,
-          "itemtype": "ChestArmor",
+          "item_type": "ChestArmor",
           "name": "Wanderer's Tunic",
           "parent": null,
           "power": 135,
@@ -134,7 +134,7 @@
             "+1 Maximum Fury"
           ],
           "id": 346457,
-          "itemtype": "Ring",
+          "item_type": "Ring",
           "name": "Ring",
           "parent": null,
           "power": 131,
@@ -156,7 +156,7 @@
             "+3% Critical Strike Damage"
           ],
           "id": 446360,
-          "itemtype": "Mace2H",
+          "item_type": "Mace2H",
           "name": "Crude Hammer",
           "parent": null,
           "power": 147,
@@ -182,7 +182,7 @@
             "+2% Physical Damage"
           ],
           "id": 1086681,
-          "itemtype": "Ring",
+          "item_type": "Ring",
           "name": "Miner's Litany",
           "parent": null,
           "power": 127,
@@ -209,7 +209,7 @@
             "+ (1.4) Rank of Kick"
           ],
           "id": 218958,
-          "itemtype": "Legs",
+          "item_type": "Legs",
           "name": "Sand-Worn Breeches",
           "parent": null,
           "power": 190,
@@ -231,7 +231,7 @@
             "+1.5% Core Skill Damage"
           ],
           "id": 446358,
-          "itemtype": "Axe",
+          "item_type": "Axe",
           "name": "Cutter's Axe",
           "parent": null,
           "power": 146,
@@ -258,7 +258,7 @@
             "+4.5% Total Armor"
           ],
           "id": 218955,
-          "itemtype": "Helm",
+          "item_type": "Helm",
           "name": "Coven's Cowl",
           "parent": null,
           "power": 168,
@@ -280,7 +280,7 @@
             "Lucky Hit: Up to a +1% Chance to Execute Injured Non-Elites"
           ],
           "id": 216115,
-          "itemtype": "Mace",
+          "item_type": "Mace",
           "name": "Club",
           "parent": null,
           "power": 128,
@@ -294,60 +294,60 @@
         }
       ],
       "fog_of_wars": [],
-      "goldCollected": 6838,
+      "gold_collected": 6838,
       "hardcore": false,
       "id": "2e6cdbd0-096f-11ee-a752-8993abe540c7",
       "lastLogin": 1686614743506000000,
-      "lastUpdate": 1704051459,
+      "last_update": 1704055416,
       "level": 13,
-      "monstersKilled": 1647,
-      "playersKilled": 0,
+      "monsters_killed": 1647,
+      "players_killed": 0,
       "power": 147,
       "queue": 1,
       "season": 0,
       "seasonal": false,
-      "secondsPlayed": 6364,
-      "skillTree": [],
+      "play_time": 6364,
+      "skill_tree": [],
       "skills": [
         {
-          "desc": "",
+          "description": "",
           "name": "Lunging Strike"
         },
         {
-          "desc": "",
+          "description": "",
           "name": "Hammer of the Ancients"
         },
         {
-          "desc": "",
+          "description": "",
           "name": "Rallying Cry"
         },
         {
-          "desc": "",
+          "description": "",
           "name": "War Cry"
         },
         {
-          "desc": "Basic attack",
+          "description": "Basic attack",
           "name": "Attack"
         },
         {
-          "desc": "Basic attack",
+          "description": "Basic attack",
           "name": "Attack"
         }
       ],
       "twitch": "krouzuv",
       "waypoints": [],
-      "worldTier": 0
+      "world_tier": 0
     },
     {
-      "accountLastUpdate": 1704051534,
+      "account_last_update": 1704055534,
       "altars": [],
       "name": "이라",
       "clan": null,
       "class": "Necromancer",
       "completed_quests": [],
-      "createdAt": 1702779427453000000,
+      "created_at": 1702779427453000000,
       "dead": false,
-      "elitesKilled": 1122,
+      "elites_killed": 1122,
       "equipment": [
         {
           "added_affix_ids": [],
@@ -367,7 +367,7 @@
             "42 Intelligence"
           ],
           "id": 421532,
-          "itemtype": "Gloves",
+          "item_type": "Gloves",
           "name": "Warlord Gauntlets",
           "parent": null,
           "power": 652,
@@ -397,7 +397,7 @@
             "+17% Movement Speed for VALUE2 Seconds After Killing an Elite"
           ],
           "id": 1309383,
-          "itemtype": "Amulet",
+          "item_type": "Amulet",
           "name": "Chain",
           "parent": null,
           "power": 667,
@@ -430,7 +430,7 @@
             "21.66% Damage Reduction from Distant Enemies"
           ],
           "id": 444425,
-          "itemtype": "ChestArmor",
+          "item_type": "ChestArmor",
           "name": "Runic Mail",
           "parent": null,
           "power": 818,
@@ -448,7 +448,7 @@
           "base_affix_ids": [],
           "base_affixes": [],
           "id": 315729,
-          "itemtype": "Gem",
+          "item_type": "Gem",
           "name": "Royal Emerald",
           "parent": 1706660,
           "power": 0,
@@ -478,7 +478,7 @@
             "+14% Damage to Close Enemies"
           ],
           "id": 1309559,
-          "itemtype": "Ring",
+          "item_type": "Ring",
           "name": "Ring",
           "parent": null,
           "power": 702,
@@ -511,7 +511,7 @@
             "+18.2% Total Armor"
           ],
           "id": 229475,
-          "itemtype": "Helm",
+          "item_type": "Helm",
           "name": "Boneweave Helm",
           "parent": null,
           "power": 827,
@@ -542,7 +542,7 @@
             "+(3) Rank of Bone Spirit"
           ],
           "id": 444435,
-          "itemtype": "Boots",
+          "item_type": "Boots",
           "name": "Sovereign Greaves",
           "parent": null,
           "power": 804,
@@ -573,7 +573,7 @@
             "+11.02% Healing Received"
           ],
           "id": 1306326,
-          "itemtype": "Legs",
+          "item_type": "Legs",
           "name": "Temerity",
           "parent": null,
           "power": 880,
@@ -603,7 +603,7 @@
             "+49% Damage to Injured Enemies"
           ],
           "id": 592306,
-          "itemtype": "Scythe2H",
+          "item_type": "Scythe2H",
           "name": "Sparr",
           "parent": null,
           "power": 863,
@@ -620,8 +620,26 @@
           "added_affixes": [],
           "base_affix_ids": [],
           "base_affixes": [],
+          "id": 315737,
+          "item_type": "Gem",
+          "name": "Royal Ruby",
+          "parent": 229475,
+          "power": 0,
+          "quality_level": "White",
+          "quality_modifier": 0,
+          "required_level": 60,
+          "strikethrough_affix_ids": [],
+          "strikethrough_affixes": [],
+          "tex": 2593128734,
+          "upgrades": 0
+        },
+        {
+          "added_affix_ids": [],
+          "added_affixes": [],
+          "base_affix_ids": [],
+          "base_affixes": [],
           "id": 315744,
-          "itemtype": "Gem",
+          "item_type": "Gem",
           "name": "Royal Sapphire",
           "parent": 1309559,
           "power": 0,
@@ -639,7 +657,7 @@
           "base_affix_ids": [],
           "base_affixes": [],
           "id": 632882,
-          "itemtype": "Gem",
+          "item_type": "Gem",
           "name": "Royal Diamond",
           "parent": 1309383,
           "power": 0,
@@ -657,7 +675,43 @@
           "base_affix_ids": [],
           "base_affixes": [],
           "id": 315737,
-          "itemtype": "Gem",
+          "item_type": "Gem",
+          "name": "Royal Ruby",
+          "parent": 444425,
+          "power": 0,
+          "quality_level": "White",
+          "quality_modifier": 0,
+          "required_level": 60,
+          "strikethrough_affix_ids": [],
+          "strikethrough_affixes": [],
+          "tex": 2593128734,
+          "upgrades": 0
+        },
+        {
+          "added_affix_ids": [],
+          "added_affixes": [],
+          "base_affix_ids": [],
+          "base_affixes": [],
+          "id": 315737,
+          "item_type": "Gem",
+          "name": "Royal Ruby",
+          "parent": 444425,
+          "power": 0,
+          "quality_level": "White",
+          "quality_modifier": 0,
+          "required_level": 60,
+          "strikethrough_affix_ids": [],
+          "strikethrough_affixes": [],
+          "tex": 2593128734,
+          "upgrades": 0
+        },
+        {
+          "added_affix_ids": [],
+          "added_affixes": [],
+          "base_affix_ids": [],
+          "base_affixes": [],
+          "id": 315737,
+          "item_type": "Gem",
           "name": "Royal Ruby",
           "parent": 592306,
           "power": 0,
@@ -675,63 +729,9 @@
           "base_affix_ids": [],
           "base_affixes": [],
           "id": 315737,
-          "itemtype": "Gem",
+          "item_type": "Gem",
           "name": "Royal Ruby",
           "parent": 1306326,
-          "power": 0,
-          "quality_level": "White",
-          "quality_modifier": 0,
-          "required_level": 60,
-          "strikethrough_affix_ids": [],
-          "strikethrough_affixes": [],
-          "tex": 2593128734,
-          "upgrades": 0
-        },
-        {
-          "added_affix_ids": [],
-          "added_affixes": [],
-          "base_affix_ids": [],
-          "base_affixes": [],
-          "id": 315737,
-          "itemtype": "Gem",
-          "name": "Royal Ruby",
-          "parent": 444425,
-          "power": 0,
-          "quality_level": "White",
-          "quality_modifier": 0,
-          "required_level": 60,
-          "strikethrough_affix_ids": [],
-          "strikethrough_affixes": [],
-          "tex": 2593128734,
-          "upgrades": 0
-        },
-        {
-          "added_affix_ids": [],
-          "added_affixes": [],
-          "base_affix_ids": [],
-          "base_affixes": [],
-          "id": 315737,
-          "itemtype": "Gem",
-          "name": "Royal Ruby",
-          "parent": 444425,
-          "power": 0,
-          "quality_level": "White",
-          "quality_modifier": 0,
-          "required_level": 60,
-          "strikethrough_affix_ids": [],
-          "strikethrough_affixes": [],
-          "tex": 2593128734,
-          "upgrades": 0
-        },
-        {
-          "added_affix_ids": [],
-          "added_affixes": [],
-          "base_affix_ids": [],
-          "base_affixes": [],
-          "id": 315737,
-          "itemtype": "Gem",
-          "name": "Royal Ruby",
-          "parent": 229475,
           "power": 0,
           "quality_level": "White",
           "quality_modifier": 0,
@@ -743,60 +743,60 @@
         }
       ],
       "fog_of_wars": [],
-      "goldCollected": 119863853,
+      "gold_collected": 119863853,
       "hardcore": false,
       "id": "60878600-9c82-11ee-97c3-37e9d24e8885",
       "lastLogin": 1703826177460000000,
-      "lastUpdate": 1704051460,
+      "last_update": 1704055417,
       "level": 71,
-      "monstersKilled": 21145,
-      "playersKilled": 0,
+      "monsters_killed": 21145,
+      "players_killed": 0,
       "power": 785,
       "queue": 1,
       "season": 2,
       "seasonal": true,
-      "secondsPlayed": 88559,
-      "skillTree": [],
+      "play_time": 88559,
+      "skill_tree": [],
       "skills": [
         {
-          "desc": "",
+          "description": "",
           "name": "Hemorrhage"
         },
         {
-          "desc": "",
+          "description": "",
           "name": "Blood Surge"
         },
         {
-          "desc": "",
+          "description": "",
           "name": "Corpse Tendrils"
         },
         {
-          "desc": "",
+          "description": "",
           "name": "Blood Mist"
         },
         {
-          "desc": "",
+          "description": "",
           "name": "Iron Maiden"
         },
         {
-          "desc": "",
+          "description": "",
           "name": "Bone Storm"
         }
       ],
       "twitch": "krouzuv",
       "waypoints": [],
-      "worldTier": 3
+      "world_tier": 3
     },
     {
-      "accountLastUpdate": 1704051534,
+      "account_last_update": 1704055534,
       "altars": [],
       "name": "크로",
       "clan": null,
       "class": "Sorcerer",
       "completed_quests": [],
-      "createdAt": 1686350579945000000,
+      "created_at": 1686350579945000000,
       "dead": false,
-      "elitesKilled": 242,
+      "elites_killed": 242,
       "equipment": [
         {
           "added_affix_ids": [],
@@ -816,7 +816,7 @@
             "+7.5% Damage to Chilled Enemies"
           ],
           "id": 1309594,
-          "itemtype": "Ring",
+          "item_type": "Ring",
           "name": "Loop",
           "parent": null,
           "power": 509,
@@ -847,7 +847,7 @@
             "+16.5% Fire Resistance"
           ],
           "id": 229473,
-          "itemtype": "Boots",
+          "item_type": "Boots",
           "name": "Boneweave Treads",
           "parent": null,
           "power": 480,
@@ -878,7 +878,7 @@
             "21 Intelligence"
           ],
           "id": 229475,
-          "itemtype": "Helm",
+          "item_type": "Helm",
           "name": "Boneweave Helm",
           "parent": null,
           "power": 511,
@@ -909,7 +909,7 @@
             "+7.5% Shock Skill Damage"
           ],
           "id": 459988,
-          "itemtype": "ChestArmor",
+          "item_type": "ChestArmor",
           "name": "Adventurer's Tunic",
           "parent": null,
           "power": 477,
@@ -935,7 +935,7 @@
             "+5% Critical Strike Chance"
           ],
           "id": 565639,
-          "itemtype": "Gloves",
+          "item_type": "Gloves",
           "name": "Fur-Lined Mitts",
           "parent": null,
           "power": 524,
@@ -961,7 +961,7 @@
             "+28.5% Overpower Damage"
           ],
           "id": 459971,
-          "itemtype": "Staff",
+          "item_type": "Staff",
           "name": "Battle Staff",
           "parent": null,
           "power": 495,
@@ -991,7 +991,7 @@
             "+0.09 Maximum Life"
           ],
           "id": 1215134,
-          "itemtype": "Ring",
+          "item_type": "Ring",
           "name": "Mother's Embrace",
           "parent": null,
           "power": 570,
@@ -1022,7 +1022,7 @@
             "+(0.8+0.6*2) Rank of Ball Lightning"
           ],
           "id": 459598,
-          "itemtype": "Legs",
+          "item_type": "Legs",
           "name": "Adventurer's Pants",
           "parent": null,
           "power": 522,
@@ -1052,7 +1052,7 @@
             "+2.6% Willpower"
           ],
           "id": 1308443,
-          "itemtype": "Amulet",
+          "item_type": "Amulet",
           "name": "Amulet",
           "parent": null,
           "power": 464,
@@ -1066,49 +1066,49 @@
         }
       ],
       "fog_of_wars": [],
-      "goldCollected": 20294092,
+      "gold_collected": 20294092,
       "hardcore": false,
       "id": "fc5248b0-0716-11ee-b717-eb9366f58160",
       "lastLogin": 1702774612610000000,
-      "lastUpdate": 1704051460,
+      "last_update": 1704055417,
       "level": 42,
-      "monstersKilled": 5981,
-      "playersKilled": 0,
+      "monsters_killed": 5981,
+      "players_killed": 0,
       "power": 504,
       "queue": 1,
       "season": 0,
       "seasonal": false,
-      "secondsPlayed": 81465,
-      "skillTree": [],
+      "play_time": 81465,
+      "skill_tree": [],
       "skills": [
         {
-          "desc": "",
+          "description": "",
           "name": "Arc Lash"
         },
         {
-          "desc": "",
+          "description": "",
           "name": "Chain Lightning"
         },
         {
-          "desc": "",
+          "description": "",
           "name": "Teleport"
         },
         {
-          "desc": "",
+          "description": "",
           "name": "Frost Nova"
         },
         {
-          "desc": "",
+          "description": "",
           "name": "Fireball"
         },
         {
-          "desc": "",
+          "description": "",
           "name": "Unstable Currents"
         }
       ],
       "twitch": "krouzuv",
       "waypoints": [],
-      "worldTier": 0
+      "world_tier": 0
     }
   ],
   "clan_id": null,

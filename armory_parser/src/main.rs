@@ -97,7 +97,7 @@ struct Account {
 #[derive(Debug, Serialize, Deserialize)]
 struct Character {
     /// @TODO: Time of last account data update
-    #[serde(rename = "accountLastUpdate")]
+    #[serde(alias = "accountLastUpdate")]
     account_last_update: u64,
 
     /// List of found Altars of Lilith
@@ -116,14 +116,14 @@ struct Character {
     completed_quests: Vec<String>,
 
     /// @TODO: Time account was created at
-    #[serde(rename = "createdAt")]
+    #[serde(alias = "createdAt")]
     created_at: u64,
 
     /// @TODO: ??
     dead: bool,
 
     /// Total elites killed
-    #[serde(rename = "elitesKilled")]
+    #[serde(alias = "elitesKilled")]
     elites_killed: u64,
 
     /// List of equipped items
@@ -133,7 +133,7 @@ struct Character {
     fog_of_wars: Vec<String>,
 
     /// Total gold collected
-    #[serde(rename = "goldCollected")]
+    #[serde(alias = "goldCollected")]
     gold_collected: u64,
 
     /// Hardcore mode enabled
@@ -147,18 +147,18 @@ struct Character {
     last_login: u64,
 
     /// @TODO: Time of last character data update
-    #[serde(rename = "lastUpdate")]
+    #[serde(alias = "lastUpdate")]
     last_update: u64,
 
     /// Level
     level: u64,
 
     /// Total monsters killed
-    #[serde(rename = "monstersKilled")]
+    #[serde(alias = "monstersKilled")]
     monsters_killed: u64,
 
     /// Total players killed
-    #[serde(rename = "playersKilled")]
+    #[serde(alias = "playersKilled")]
     players_killed: u64,
 
     /// Average item power of equipment
@@ -174,11 +174,11 @@ struct Character {
     seasonal: bool,
 
     /// Total time played
-    #[serde(rename = "secondsPlayed")]
+    #[serde(alias = "secondsPlayed")]
     play_time: u64,
 
     /// List of skill tree (?)
-    #[serde(rename = "skillTree")]
+    #[serde(alias = "skillTree")]
     skill_tree: Vec<String>,
 
     /// List of enabled skills
@@ -191,7 +191,7 @@ struct Character {
     waypoints: Vec<String>,
 
     /// Current world tier (1-4)
-    #[serde(rename = "worldTier")]
+    #[serde(alias = "worldTier")]
     world_tier: u64,
 }
 
@@ -209,7 +209,7 @@ struct Item {
     id: u64,
 
     /// Item type (helmet, chest, boots, etc)
-    #[serde(rename = "itemtype")]
+    #[serde(alias = "itemtype")]
     item_type: String,
 
     /// Name of the item
@@ -240,7 +240,7 @@ struct Item {
 #[derive(Debug, Serialize, Deserialize)]
 struct Skill {
     /// Description of the skill
-    #[serde(rename = "desc")]
+    #[serde(alias = "desc")]
     description: String,
 
     /// Name of the skill
