@@ -137,7 +137,7 @@ struct Character {
     #[serde(with = "chrono::serde::ts_nanoseconds")]
     created_at: DateTime<Utc>,
 
-    /// @TODO: ??
+    /// Is character currently dead
     dead: bool,
 
     /// Total elites killed
@@ -147,7 +147,7 @@ struct Character {
     /// List of equipped items
     equipment: Vec<Item>,
 
-    /// @TODO: ??
+    /// List of unexplored locations (?)
     fog_of_wars: Vec<String>,
 
     /// Total gold collected
@@ -235,8 +235,9 @@ struct Item {
     /// Name of the item
     name: String,
 
-    /// Parent of the item (?)
-    parent: Option<u64>,
+    /// Item parent ID (?)
+    #[serde(alias = "parent")]
+    parent_id: Option<u64>,
 
     /// Item power level
     power: u64,
@@ -248,10 +249,13 @@ struct Item {
     /// Required level to equip the item
     required_level: u64,
 
-    /// @TODO: ???
+    /// Item marked for junk (?)
     strikethrough_affix_ids: Vec<u64>,
     strikethrough_affixes: Vec<String>,
-    tex: u64,
+
+    /// Texture ID
+    #[serde(alias = "tex")]
+    texture_id: u64,
     
     /// Level of applied upgrades
     upgrades: u64,
