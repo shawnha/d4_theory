@@ -1,6 +1,7 @@
+use chrono::{Utc, DateTime, Duration};
 use regex::Regex;
 use reqwest;
-use serde::{Serialize, Deserialize};
+use serde::{Serialize, Deserialize, Serializer, Deserializer};
 use serde_json::{Value};
 
 /// Player's account ID
@@ -70,6 +71,21 @@ impl From<std::io::Error> for Error {
 /// Custom Result type alias
 type Result<T> = std::result::Result<T, Error>;
 
+mod chrono_duration {
+    use super::*;
+
+    pub fn serialize<S>(duration: &Duration, serializer: S) 
+            -> std::result::Result<S::Ok, S::Error> where S: Serializer {
+        serializer.serialize_i64(duration.num_seconds())
+    }
+
+    pub fn deserialize<'de, D>(deserializer: D) 
+            -> std::result::Result<Duration, D::Error> where D: Deserializer<'de> {
+        let seconds = i64::deserialize(deserializer)?;
+        Ok(Duration::seconds(seconds))
+    }
+}
+
 #[derive(Debug, Serialize, Deserialize)]
 struct Account {
     /// Total bosses killed
@@ -96,9 +112,10 @@ struct Account {
 
 #[derive(Debug, Serialize, Deserialize)]
 struct Character {
-    /// @TODO: Time of last account data update
+    /// Time of last account data update
     #[serde(alias = "accountLastUpdate")]
-    account_last_update: u64,
+    #[serde(with = "chrono::serde::ts_seconds")]
+    account_last_update: DateTime<Utc>,
 
     /// List of found Altars of Lilith
     altars: Vec<String>,
@@ -115,9 +132,10 @@ struct Character {
     /// List of completed quests
     completed_quests: Vec<String>,
 
-    /// @TODO: Time account was created at
+    /// Time account was created at
     #[serde(alias = "createdAt")]
-    created_at: u64,
+    #[serde(with = "chrono::serde::ts_nanoseconds")]
+    created_at: DateTime<Utc>,
 
     /// @TODO: ??
     dead: bool,
@@ -142,11 +160,12 @@ struct Character {
     /// Associated character ID
     id: String,
 
-    /// @TODO: Time of last login
-    #[serde(rename = "lastLogin")]
-    last_login: u64,
+    /// Time of last login
+    #[serde(alias = "lastLogin")]
+    #[serde(with = "chrono::serde::ts_nanoseconds")]
+    last_login: DateTime<Utc>,
 
-    /// @TODO: Time of last character data update
+    /// Duplicate of `account_last_update`
     #[serde(alias = "lastUpdate")]
     last_update: u64,
 
@@ -175,7 +194,8 @@ struct Character {
 
     /// Total time played
     #[serde(alias = "secondsPlayed")]
-    play_time: u64,
+    #[serde(with = "chrono_duration")]
+    play_time: Duration,
 
     /// List of skill tree (?)
     #[serde(alias = "skillTree")]
